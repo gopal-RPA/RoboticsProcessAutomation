@@ -1,0 +1,394 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Sequence1" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="790,4063" sap2010:WorkflowViewState.IdRef="Sequence1_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="23">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="20">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="Sequence1" sap:VirtualizedContainerService.HintSize="770,3963" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="728,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="login_scope.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Sequence sap:VirtualizedContainerService.HintSize="728,3744" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Name="URL" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[URL]" DisplayName="Execute Query" sap:VirtualizedContainerService.HintSize="686,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" ProviderName="System.Data.SqlClient" Sql="SELECT b.Request_No,a.Print_Form_URL&#xA;FROM Print_form_url A&#xA;LEFT JOIN View_forwarded_request_main B&#xA;ON A.Request_No = B.Request_No&#xA;and B.Permit_No IS NULL" ConnectionString="Data Source=NAP-CE-LAP-032;Initial Catalog=RPA;Persist Security Info=True;User ID=sa;Password=N#123456">
+        <ui:ExecuteQuery.Parameters>
+          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+        </ui:ExecuteQuery.Parameters>
+      </ui:ExecuteQuery>
+      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[URL]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="686,3524" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="636,3376" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="ui:Browser" Name="url_cls" />
+                <Variable x:TypeArguments="ui:GenericValue" Name="Download_link" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="594,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[Download_link]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="ui:GenericValue">[row(1).ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="594,3122" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[url_cls]" Url="[&quot;https://i3ms.orissaminerals.gov.in/i3MS/PMS/&quot;+Download_link]">
+                <ui:OpenBrowser.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="560,3023" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence DisplayName="scrapping" sap:VirtualizedContainerService.HintSize="518,2931" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="sd:DataTable" Name="From_i_deatils" />
+                          <Variable x:TypeArguments="ui:GenericValue" Name="valid_memo_no" />
+                          <Variable x:TypeArguments="ui:GenericValue" Name="permit_no" />
+                          <Variable x:TypeArguments="ui:GenericValue" Name="permit_date" />
+                          <Variable x:TypeArguments="ui:GenericValue" Name="valid_memo_date" />
+                          <Variable x:TypeArguments="ui:GenericValue" Name="request_no" />
+                          <Variable x:TypeArguments="ui:GenericValue" Name="Permit_Valid_From_Date" />
+                          <Variable x:TypeArguments="s:String[]" Name="Split_from" />
+                          <Variable x:TypeArguments="ui:GenericValue" Name="form" />
+                          <Variable x:TypeArguments="s:String[]" Name="Split_to" />
+                          <Variable x:TypeArguments="ui:GenericValue" Name="permit_valid_to_date" />
+                          <Variable x:TypeArguments="ui:GenericValue" Name="to_" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click form I" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="23614b0a2d5260b57bc0e34e9618a100" Selector="&lt;webctrl id='slick-toggle' tag='A' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click pdf  'IMG'" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="da929d644a55e87caced498f51cf07ce" Selector="&lt;html app='chrome.exe' title='Download Documents' /&gt;&lt;webctrl parentid='grdConsignee_ctl02_aformI' tag='IMG' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <Assign sap:VirtualizedContainerService.HintSize="476,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[request_no]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="ui:GenericValue">[row(0).ToString]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="476,436" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'Departmen Page'" sap:VirtualizedContainerService.HintSize="434,344" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="7a163a4132269867df9d5dc11f43735e" Selector="&lt;html app='chrome.exe' title='Department of Steel &amp;amp; Mines' /&gt;">
+                            <ui:BrowserScope.Body>
+                              <ActivityAction x:TypeArguments="x:Object">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[From_i_deatils]" DisplayName="Extract Structured Data 'TABLE  dlFormI_ctl00_gr...'" ExtractMetadata="&lt;extract-table get_columns_name='0' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="0" SimulateClick="True">
+                                    <ui:ExtractData.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="33b4020672ede7104fdfeeca7415afd3" Selector="&lt;webctrl id='dlFormI_ctl00_grDDMAction' tag='TABLE' /&gt;" WaitForReady="COMPLETE">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                      </ui:Target>
+                                    </ui:ExtractData.Target>
+                                  </ui:ExtractData>
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:BrowserScope.Body>
+                          </ui:BrowserScope>
+                        </Sequence>
+                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Request_No" DataTable="[From_i_deatils]" DefaultValue="[request_no]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="476,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_5" />
+                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'SPAN  dlFormI_ctl00_lbl...'" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                          <ui:GetValue.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0ca7b2f3e81856d2da1a2b22932cf29a" Selector="&lt;html app='chrome.exe' title='Department of Steel &amp;amp; Mines' /&gt;&#xA;&lt;webctrl id='dlFormI_ctl00_lblOerNO' tag='SPAN' innertext='*' /&gt;&#xA;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:GetValue.Target>
+                          <ui:GetValue.Value>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[permit_no]</OutArgument>
+                          </ui:GetValue.Value>
+                        </ui:GetValue>
+                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Permit_No" DataTable="[From_i_deatils]" DefaultValue="[permit_no]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="476,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
+                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'SPAN  dlFormI_ctl00_lbl...'" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                          <ui:GetValue.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="537f0cbfb5858f1ea6d00c636d77316f" Selector="&lt;html app='chrome.exe' title='Department of Steel &amp;amp; Mines' /&gt;&#xA;&lt;webctrl id='dlFormI_ctl00_lblDate' tag='SPAN' innertext='*' /&gt;&#xA;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:GetValue.Target>
+                          <ui:GetValue.Value>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[permit_date]</OutArgument>
+                          </ui:GetValue.Value>
+                        </ui:GetValue>
+                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Permit_Date" DataTable="[From_i_deatils]" DefaultValue="[permit_date]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="476,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3" />
+                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'SPAN  dlFormI_ctl00_lbl...'" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                          <ui:GetValue.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d9242d50d7a00b3ceab4fa8c426b9c62" Selector="&lt;html app='chrome.exe' title='Department of Steel &amp;amp; Mines' /&gt;&#xA;&lt;webctrl id='dlFormI_ctl00_lblpermit1' tag='SPAN' innertext='*' /&gt;&#xA;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:GetValue.Target>
+                          <ui:GetValue.Value>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[valid_memo_no]</OutArgument>
+                          </ui:GetValue.Value>
+                        </ui:GetValue>
+                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Valid_Memo_no" DataTable="[From_i_deatils]" DefaultValue="[valid_memo_no]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="476,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'SPAN  dlFormI_ctl00_lbl...'" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="GetValue_4">
+                          <ui:GetValue.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b5c74bafa2694fd50789707f3f64c139" Selector="&lt;html app='chrome.exe' title='Department of Steel &amp;amp; Mines' /&gt;&#xA;&lt;webctrl id='dlFormI_ctl00_lblpdate' tag='SPAN' innertext='*' /&gt;&#xA;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:GetValue.Target>
+                          <ui:GetValue.Value>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[valid_memo_date]</OutArgument>
+                          </ui:GetValue.Value>
+                        </ui:GetValue>
+                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Valid_Memo_Date" DataTable="[From_i_deatils]" DefaultValue="[valid_memo_date]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="476,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_4" />
+                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'STRONG'" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="GetValue_5">
+                          <ui:GetValue.Target>
+                            <ui:Target Element="{x:Null}" InformativeScreenshot="12fc629e40b7ccfd152f480a20379382" Selector="&lt;html app='chrome.exe' title='Department of Steel &amp;amp; Mines' /&gt;&#xD;&#xA;&lt;webctrl id='dlFormI_ctl00_lblFrom' tag='SPAN' innertext='*' /&gt;&#xD;&#xA;">
+                              <ui:Target.ClippingRegion>
+                                <ui:Region Rectangle="35, 2, 72, 11" />
+                              </ui:Target.ClippingRegion>
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:GetValue.Target>
+                          <ui:GetValue.Value>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[Permit_Valid_From_Date]</OutArgument>
+                          </ui:GetValue.Value>
+                        </ui:GetValue>
+                        <Assign sap:VirtualizedContainerService.HintSize="476,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:String[]">[Split_from]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:String[]">[Permit_Valid_From_Date.Split(cchar(":"))]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="476,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[form]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="ui:GenericValue">[Split_from(1).Tostring]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Permit_Valid_From_Date" DataTable="[From_i_deatils]" DefaultValue="[form]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="476,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_6" />
+                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'SPAN  dlFormI_ctl00_lbl...'" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="GetValue_6">
+                          <ui:GetValue.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="bfb1043da3b1533cc233dd30db910fdd" Selector="&lt;html app='chrome.exe' title='Department of Steel &amp;amp; Mines' /&gt;&#xD;&#xA;&lt;webctrl id='dlFormI_ctl00_lblTo' tag='SPAN' innertext='*' /&gt;&#xD;&#xA;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:GetValue.Target>
+                          <ui:GetValue.Value>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[permit_valid_to_date]</OutArgument>
+                          </ui:GetValue.Value>
+                        </ui:GetValue>
+                        <Assign sap:VirtualizedContainerService.HintSize="476,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:String[]">[Split_to]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:String[]">[permit_valid_to_date.Split(cchar(":"))]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="476,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[to_]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="ui:GenericValue">[Split_to(1).Tostring]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Permit_Valid_To_Date" DataTable="[From_i_deatils]" DefaultValue="[to_]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="476,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_7" />
+                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'chrome.exe Department'" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target Element="{x:Null}" Selector="{x:Null}" InformativeScreenshot="a032e0187b4079f3c5a37dd0c779b672">
+                              <ui:Target.ClippingRegion>
+                                <ui:Region Rectangle="464, 13, 29, 27" />
+                              </ui:Target.ClippingRegion>
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:AppendRange DataTable="[From_i_deatils]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="476,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Sheet2" WorkbookPath="E:\Rpa_Team\msp_steel\I3MS_project_files\View_forwarded_request.xlsx" />
+                      </Sequence>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:OpenBrowser.Body>
+              </ui:OpenBrowser>
+              <ui:CloseTab Browser="[url_cls]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="594,22" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachRow.Body>
+      </ui:ForEachRow>
+    </Sequence>
+  </Sequence>
+</Activity>
